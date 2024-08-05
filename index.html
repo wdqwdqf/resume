@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume-Prasiddha</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgba(98, 98, 27, 0.384);
+            transition: background-color 0.5s;
+            overflow-x: hidden;
+        }
+
+        .name-container {
+            text-align: center;
+            margin-top: 10px;
+            opacity: 0;
+            background-color: #03061e;
+            border-radius: 100%;
+            box-shadow: 2px 2px 4px rgb(156, 4, 4);
+            transform: translateY(-50px);
+            transition: opacity 1s, transform 1s;
+        }
+
+        .name {
+            font-size: 40px;
+            font-weight: bolder;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px #0593f8;
+        }
+
+        .title {
+            font-size: 24px;
+            font-style: italic;
+            color: #247A7D;
+            text-shadow: 2px 2px 4px rgb(107, 6, 6);
+        }
+
+        .profile-photo {
+            max-height: 0vh;
+            animation: slideInFromRight 2s forwards;
+        }
+
+        .profile-photo img {
+            filter: drop-shadow(-5px 5px 10px rgb(95, 3, 3));
+            width: 480px;
+            max-height: 100vh;
+            border-radius: 40%;
+        }
+
+        @keyframes slideInFromRight {
+            0% {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+
+            70% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .paragraph-container {
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(87, 81, 5, 0.977);
+            margin-top: 32%;
+            padding: 8px;
+            max-width: 500px;
+            float: inline-start;
+            font-size: large;
+            font-weight: 600;
+            font-style: italic;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .container {
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(6, 76, 7, 0.974);
+            display: inline-block;
+            grid-template-columns: 1fr 2fr;
+            grid-column-gap: 20px;
+            transition: background-color 0.5s;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 400;
+            font-size: large;
+            margin-top: 20px;
+        }
+
+        .contact {
+            text-align: start;
+            display: inline-block;
+            margin: 5px;
+            padding: 20px;
+            background-color: #ebd9d97f;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(87, 81, 5, 0.977);
+        }
+
+        .skills {
+            display: inline-block;
+            padding: 20px;
+            margin-top: 0%;
+        }
+
+        .skill {
+            margin: 5px;
+            padding: 20px;
+            background-color: #000000;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(87, 81, 5, 0.977);
+        }
+
+        .skills-experience {
+            float: right;
+            max-width: 565px;
+            margin: 4px;
+            padding: 10px;
+            background-color: #ebd9d97f;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(87, 81, 5, 0.977);
+        }
+
+        .paragraph-container h2 {
+            margin-bottom: 10px;
+            color: #274154;
+            text-shadow: 1.5px 1.5px 1.7px rgba(8, 160, 155, 0.499);
+            text-align: center;
+        }
+
+        .contact h2,
+        .skills-experience h2 {
+            margin-bottom: 10px;
+            color: #274154;
+            text-shadow: 1.5px 1.5px 1.7px rgba(8, 160, 155, 0.499);
+        }
+
+        .contact ul,
+        .skills-experience ul {
+            list-style-type: none;
+            display: inline-block;
+            padding: 0;
+        }
+
+        .contact li,
+        .skills-experience li {
+            margin-bottom: 8px;
+        }
+
+        .skill {
+            width: 200px;
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: #0a0000;
+        }
+
+        .skills h2 {
+            margin: 20px;
+            color: #274154;
+            font-family: 'Times New Roman', Times, serif;
+            font-style: oblique;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #0034a4d1;
+            border-color: aliceblue;
+            border-radius: 10px;
+            box-shadow: 7px #5757ab;
+            margin: 5px 5px 5px 5px;
+            position: relative;
+        }
+
+        .tool {
+            margin: 0 0 0 50px;
+            font-weight: 600;
+            border-radius: 10px;
+            box-shadow: #274154;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid orange;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+
+        .dark-theme {
+            background-color: black;
+            color: whitesmoke;
+            overflow-x: hidden;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            overflow-x: hidden;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+            overflow-x: hidden;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            overflow-x: hidden;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #240303;
+            transition: 0.4s;
+            border-radius: 34px;
+            overflow-x: hidden;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: rgb(16, 133, 104);
+            transition: 0.4s;
+            border-radius: 50%;
+            overflow-x: hidden;
+        }
+
+        input:checked+.slider {
+            background-color: rgba(1, 38, 68, 0.986)
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(26px);
+        }
+
+        .round {
+            border-radius: 34px;
+        }
+
+
+        .contact-info {
+            margin: 5px;
+        }
+
+        .contact-info ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .contact-info li {
+            margin-bottom: 5px;
+        }
+
+        .contact-info a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #264069cb;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #007bff;
+        }
+
+        .contact-info a:before {
+            content: '';
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            background-size: cover;
+        }
+
+        .contact-info a[href^="https://www.instagram.com/"]::before {
+            background-image: url('./image/download.jpeg');
+            border-radius: 30%;
+        }
+
+        .contact-info a[href^="https://wa.me/"]::before {
+            background-image: url('./image/whatsapp-icon-1024x1024-cilsjgvb.png');
+            border-radius: 30%;
+        }
+
+        .contact-info a[href^="mailto:"]::before {
+            background-image: url('./image/3955524.webp');
+            border-radius: 30%;
+        }
+        .design {
+            margin-top: 20px;
+            background-color: rgba(98, 98, 27, 0.384);
+            border: 1px solid #dddddd;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgb(96, 2, 2);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .design a {
+            display: inline-block;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #007BFF;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            overflow: hidden;
+        }
+
+        .design a:hover {
+            background-color: #0056b3;
+        }
+
+        @media only screen and (max-width: 576px) {
+            body {
+                font-size: 14px;
+                overflow-x: hidden;
+            }
+
+            .contact,
+            .skill,
+            .paragraph-container,
+            .skills-experience {
+                box-shadow: 0 0 5px rgba(146, 137, 8, 0.977);
+                overflow-x: hidden;
+            }
+
+            .name {
+                margin-top: 15px;
+                font-size: 18px;
+                font-weight: bold;
+                text-align: center;
+                overflow-x: hidden;
+            }
+
+            .name-container {
+                overflow-x: hidden;
+                width: 98%;
+            }
+
+            .title {
+                font-size: 16px;
+            }
+
+            .container {
+                margin: 9.5px;
+                max-width: 90%;
+                padding: 5px;
+                box-shadow: 0 0 10px rgb(2, 115, 4);
+                overflow-x: hidden;
+            }
+
+            .paragraph-container {
+                margin-top: 5%;
+                margin-left: 2.5%;
+                max-width: 90%;
+                padding: 5px;
+                overflow-x: hidden;
+            }
+
+            .profile-photo img {
+                margin-top: 0%;
+                width: 30%;
+                height: 11vh;
+                overflow-x: hidden;
+            }
+
+            .contact,
+            .skills,
+            .skills-experience {
+                padding: 15px;
+                margin-bottom: 10px;
+            }
+
+            .skill {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .skills h2 {
+                margin: 15px 0;
+                font-size: 20px;
+            }
+
+            .contact {
+                margin: 3.5%;
+            }
+
+            .skills-experience {
+                margin: 3.5%;
+            }
+
+            .contact-info {
+                margin: 0;
+            }
+
+            .contact-info a:before {
+                width: 20px;
+                height: 20px;
+                margin-right: 8px;
+            }
+
+            .contact-info li {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="name-container">
+        <h1 class="name">PRASIDDHA MAHAJU</h1>
+        <p class="title">WEB DEVELOPER</p>
+    </div>
+    <div class="theme-toggle">
+        <label class="switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider round"></span>
+        </label>
+    </div>
+    <div class="profile-photo">
+        <img src="./image/WhatsApp Image 2024-05-01 at 15.26.31_2b145924.jpg" alt="Profile Photo">
+    </div>
+
+    <div class="paragraph-container">
+        <h2>Profile</h2>
+        <p>As a web developer, I succeed on transforming ideas into engaging digital experiences. With a passion towards
+            innovation and a keen eye for detail where I crafted websites that not only meet client expectations but
+            exceed
+            them.
+            My expertise spans across the spectrum of web technologies, from front-end development using HTML, CSS, and
+            JavaScript to back-end implementations with frameworks like Django and databases like MySQL. I take pride in
+            creating responsive, user-friendly designs that seamlessly adapt to various devices and screen sizes.
+            Constantly
+            seeking to push the boundaries of what's possible, I embrace new challenges with enthusiasm and a commitment
+            to
+            delivering high-quality, scalable solutions. Whether it's building portfolio websites,
+            or
+            dynamic web applications, my approach on each project with the creativity, professionalism and a dedication
+            to
+            excellence.</p>
+    </div>
+    <div class="container">
+        <div class="contact">
+            <h2>Contact Details</h2>
+            <ul>
+                <li><strong>Address:</strong> Imadol, Lalitpur</li>
+                <li><strong>Email:</strong> scavenger190power@gmail.com</li>
+                <li><strong>Number:</strong> +977 9811802916</li>
+            </ul>
+            <div class="contact-info">
+                <ul>
+                    <li><a href="https://www.instagram.com/prasiddha_mahaju" target="_blank">Instagram</a></li>
+                    <li><a href="https://wa.me/9811802916" target="_blank">WhatsApp</a></li>
+                    <li><a href="mailto:scavenger190power@gmail.com">Email</a></li>
+                </ul>
+            </div>
+            <div class="skills">
+                <h2>Skills Level</h2>
+                <div class="skill">
+                    <h2>HTML</h2>
+                    <div class="skill-bar" data-level="90">90%</div>
+                </div>
+                <div class="skill">
+                    <h2>CSS</h2>
+                    <div class="skill-bar" data-level="85">85%</div>
+                </div>
+                <div class="skill">
+                    <h2>JavaScript</h2>
+                    <div class="skill-bar" data-level="65">65%</div>
+                </div>
+                <div class="skill">
+                    <h2>PHP</h2>
+                    <div class="skill-bar" data-level="75">75%</div>
+                </div>
+                <div class="skill">
+                    <h2>MySQL</h2>
+                    <div class="skill-bar" data-level="70">70%</div>
+                </div>
+                <div class="skill">
+                    <h2>Django</h2>
+                    <div class="skill-bar" data-level="55">55%</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="skills-experience">
+            <h2>Skills</h2>
+            <ul>
+                <li><strong>Programming Languages:</strong> HTML, CSS, JavaScript, Python</li>
+                <li><strong>Frameworks:</strong> Django</li>
+                <li><strong>Database:</strong> MySQL</li>
+                <li><strong>Version Control:</strong> Git</li>
+            </ul>
+
+            <h2>Experience</h2>
+            <ul>
+                <li>
+                    <strong>Duration:</strong>1 year Experience<br>
+                    <strong>Description:</strong> As an experienced web developer, I have successfully designed and
+                    developed eight multi-page websites for a diverse range of purposes. This expertise in
+                    front-end and back-end development technologies had created dynamic and visually appealing
+                    websites that meet the unique needs of each project. From e-commerce platforms to portfolio websites
+                    and informational portals. Throughout the development process, I have implemented responsive
+                    design principles to ensure optimal performance across devices and browsers. Additionally, my
+                    attention to detail and commitment to delivering high-quality code have enabled me to produce
+                    websites that not only look great but also function smoothly.
+                </li>
+                <ul><i><strong>
+                            <li class="li">1. Multi-Page Fitness Zilla Website</li>
+                            <li class="li">2. Currency Exchange Calculator</li>
+                            <li class="li">3. Video-Sharing Website</li>
+                        </strong>
+                    </i>
+                </ul>
+            </ul>
+            <h2>Qualification</h2>
+            <ul><strong><i>
+                        <li>Children World Secondary School</li>
+                        <li>Higher Education from Prasadi Academy</li>
+                        <li>Bachelor in ISMT College</li>
+                    </i></strong>
+            </ul>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Secondary Education</th>
+                        <th>Higher Education</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="1">3.85</td>
+                        <td colspan="1">3.58</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="design">
+            <a href="Marksheet.html">Click here To See</a>
+</div>
+            <h2>Personal Qualities</h2>
+            <ul><strong><i>
+                        <ul>
+                            <li>Communication Skills</li>
+                            <div class="skill-bar" data-level="90">
+                                <div class="tool">90%</div>
+                            </div>
+                            <li>Teamwork</li>
+                            <div class="skill-bar" data-level="80">
+                                <div class="tool">80%</div>
+                            </div>
+                            <li>Problem-solving Skills</li>
+                            <div class="skill-bar" data-level="85">
+                                <div class="tool">85%</div>
+                            </div>
+                            <li>Organizational Skills</li>
+                            <div class="skill-bar" data-level="80">
+                                <div class="tool">80%</div>
+                            </div>
+                        </ul>
+        </div>
+        </i></strong>
+        </ul>
+    </div>
+    </div>
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const container = document.querySelector('.container');
+        const contact = document.querySelector('.contact');
+        const skillsExperience = document.querySelector('.skills-experience');
+
+        themeToggle.addEventListener('change', () => {
+            if (themeToggle.checked) {
+                body.classList.add('dark-theme');
+                container.classList.add('dark-theme');
+                contact.classList.add('dark-theme');
+                skillsExperience.classList.add('dark-theme');
+            } else {
+                body.classList.remove('dark-theme');
+                container.classList.remove('dark-theme');
+                contact.classList.remove('dark-theme');
+                skillsExperience.classList.remove('dark-theme');
+            }
+        });
+        window.addEventListener('DOMContentLoaded', () => {
+            const nameContainer = document.querySelector('.name-container');
+            nameContainer.style.opacity = '1';
+            nameContainer.style.transform = 'translateY(0)';
+            const name = document.querySelector('.name');
+            name.addEventListener('mouseover', () => {
+                name.style.color = '#2F3851';
+            });
+            name.addEventListener('mouseout', () => {
+                name.style.color = 'black';
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            const skillBars = document.querySelectorAll(".skill-bar");
+
+            skillBars.forEach(function (skillBar) {
+                const level = skillBar.getAttribute("data-level");
+                skillBar.style.width = level + "%";
+                skillBar.style.animation = "growBar 1s ease-in-out forwards";
+            });
+        });
+    </script>
+</body>
+
+</html>
